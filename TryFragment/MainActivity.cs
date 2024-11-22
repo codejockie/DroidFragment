@@ -20,14 +20,14 @@ public class MainActivity : AppCompatActivity
         if (newButton != null) newButton.Click += OnNewButtonClick;
         if (editButton != null) editButton.Click += OnEditButtonClick;
 
-        //if (savedInstanceState == null)
-        //{
-        //    // Pass arguments to fragment
-        //    SupportFragmentManager.BeginTransaction()
-        //        .SetReorderingAllowed(true)
-        //        .Add(Resource.Id.fragment_container_view, ExampleFragment.NewInstance(), ExampleFragment.NameTag)
-        //        .Commit();
-        //}
+        if (savedInstanceState == null)
+        {
+            // Pass arguments to fragment
+            SupportFragmentManager.BeginTransaction()
+                .SetReorderingAllowed(true)
+                .Add(Resource.Id.fragment_container_view, ExampleFragment.NewInstance(), ExampleFragment.NameTag)
+                .Commit();
+        }
     }
 
     private void OnEditButtonClick(object? sender, EventArgs e)

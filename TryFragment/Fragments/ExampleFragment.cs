@@ -1,3 +1,4 @@
+using Android.Text;
 using Android.Views;
 using Google.Android.Material.DatePicker;
 using Google.Android.Material.TextField;
@@ -24,7 +25,9 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
 
         AddButtonClickHandler(view, Resource.Id.button_save, OnSaveClick);
         AddButtonClickHandler(view, Resource.Id.button_cancel, OnCancelClick);
+        AddButtonClickHandler(view, Resource.Id.button_expiration_date_toggle, OnExpirationDateToggle);
         AddButtonClickHandler(view, Resource.Id.button_production_date_toggle, OnProductionDateToggle);
+        AddTextChangedHandler(view, Resource.Id.text_input_production_date, OnProductionTextChanged);
         SetTextInputLayoutError(view, Resource.Id.text_input_layout_license_number, "License number is required");
         SetTextInputClickHandler(view, Resource.Id.text_input_expiration_date, OnExpirationDateTextInputClick);
         AddCheckboxCheckHandler(view, Resource.Id.checkbox_no_expiration, OnCheckChanged);
@@ -88,6 +91,16 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
         }
     }
 
+    private bool _isOrdinalExpirationDate;
+    private void OnExpirationDateToggle(object? sender, EventArgs e)
+    {
+        if (sender is Button button)
+        {
+            button.Text = _isOrdinalExpirationDate ? "STD" : "ORD";
+            _isOrdinalExpirationDate = !_isOrdinalExpirationDate;
+        }
+    }
+
     private bool _isOrdinalProductionDate;
     private void OnProductionDateToggle(object? sender, EventArgs e)
     {
@@ -95,6 +108,14 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
         {
             button.Text = _isOrdinalProductionDate ? "STD" : "ORD";
             _isOrdinalProductionDate = !_isOrdinalProductionDate;
+        }
+    }
+
+    private void OnProductionTextChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (sender is TextInputEditText tie && DateTime.TryParse(tie.Text, out var date))
+        {
+            SetInputText(View, Resource.Id.text_input_production_week, date.GetWeekNumber().ToString());
         }
     }
 

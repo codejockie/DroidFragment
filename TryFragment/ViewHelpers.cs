@@ -74,6 +74,12 @@ internal class ViewHelpers
         input?.SetFilters(filters);
     }
 
+    public static void AddTextChangedHandler(View? view, int id, EventHandler<TextChangedEventArgs> handler)
+    {
+        var input = view?.FindViewById<TextInputEditText>(id);
+        if (input != null) input.TextChanged += handler;
+    }
+
     public static MaterialDatePicker GetDatePicker(string? value, string? titleText)
     {
         var parsed = DateTime.TryParseExact(value, "MM/dd/yy", default, default, out var dateTime);

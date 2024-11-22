@@ -4,57 +4,76 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
-	
+
 	<LinearLayout
 		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:padding="16dp">
 
-		<com.google.android.material.textfield.TextInputLayout
-			style="?attr/textInputFilledStyle"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			app:endIconMode="clear_text"
-			android:layout_marginTop="8dp"
-			app:errorEnabled="true"
-			android:id="@+id/text_input_layout_expiration_date">
-
-			<com.google.android.material.textfield.TextInputEditText
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:hint="Expiration date"
-				android:inputType="none"
-				android:maxLines="1"
-				android:textIsSelectable="false"
-				android:focusable="false"
-				android:longClickable="false"
-				android:focusableInTouchMode="false"
-				android:id="@+id/text_input_expiration_date"
-		/>
-		</com.google.android.material.textfield.TextInputLayout>
-
-		<com.google.android.material.checkbox.MaterialCheckBox
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="No expiration"
-			android:id="@+id/checkbox_no_expiration"
-	/>
-
 		<LinearLayout
 			android:orientation="horizontal"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/layout_buttons">
+			android:gravity="center">
 
 			<com.google.android.material.textfield.TextInputLayout
 				style="?attr/textInputFilledStyle"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				app:endIconMode="clear_text"
-				android:layout_marginTop="8dp"
 				app:errorEnabled="true"
-				android:layout_weight="2"
+				android:layout_weight="1"
+				android:id="@+id/text_input_layout_expiration_date">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Expiration date"
+					android:inputType="none"
+					android:maxLines="1"
+					android:textIsSelectable="false"
+					android:focusable="false"
+					android:longClickable="false"
+					android:focusableInTouchMode="false"
+					android:layout_gravity="center"
+					android:id="@+id/text_input_expiration_date"
+				/>
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<com.google.android.material.button.MaterialButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="STD"
+				android:id="@+id/button_expiration_date_toggle"
+				android:layout_marginStart="4dp"
+				android:insetTop="0dp"
+				android:insetBottom="0dp"
+				android:layout_gravity="center"
+			/>
+		</LinearLayout>
+
+		<com.google.android.material.checkbox.MaterialCheckBox
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="No expiration"
+			android:id="@+id/checkbox_no_expiration"
+		/>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:gravity="center">
+
+			<com.google.android.material.textfield.TextInputLayout
+				style="?attr/textInputFilledStyle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:endIconMode="clear_text"
+				app:errorEnabled="true"
+				android:layout_weight="1"
 				android:id="@+id/text_input_layout_production_date">
 
 				<com.google.android.material.textfield.TextInputEditText
@@ -67,6 +86,7 @@
 					android:focusable="false"
 					android:longClickable="false"
 					android:focusableInTouchMode="false"
+					android:layout_gravity="center"
 					android:id="@+id/text_input_production_date"
 				/>
 			</com.google.android.material.textfield.TextInputLayout>
@@ -79,6 +99,7 @@
 				android:layout_marginStart="4dp"
 				android:insetTop="0dp"
 				android:insetBottom="0dp"
+				android:layout_gravity="center"
 			/>
 		</LinearLayout>
 
