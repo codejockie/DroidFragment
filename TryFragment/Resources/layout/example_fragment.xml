@@ -29,22 +29,42 @@
 				<com.google.android.material.textfield.TextInputEditText
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:hint="Expiration date"
+					android:hint="@string/expiration_date"
 					android:inputType="none"
 					android:maxLines="1"
 					android:textIsSelectable="false"
 					android:focusable="false"
 					android:longClickable="false"
 					android:focusableInTouchMode="false"
-					android:layout_gravity="center"
 					android:id="@+id/text_input_expiration_date"
+				/>
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<com.google.android.material.textfield.TextInputLayout
+				style="?attr/textInputFilledStyle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:endIconMode="clear_text"
+				app:errorEnabled="true"
+				android:layout_weight="1"
+				android:visibility="gone"
+				android:id="@+id/text_input_layout_ordinal_expiration_date">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/ordinal_expiration_date"
+					android:inputType="number"
+					android:maxLines="1"
+					android:maxLength="5"
+					android:id="@+id/text_input_ordinal_expiration_date"
 				/>
 			</com.google.android.material.textfield.TextInputLayout>
 
 			<com.google.android.material.button.MaterialButton
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="STD"
+				android:text="@string/standard"
 				android:id="@+id/button_expiration_date_toggle"
 				android:layout_marginStart="4dp"
 				android:insetTop="0dp"
@@ -56,7 +76,7 @@
 		<com.google.android.material.checkbox.MaterialCheckBox
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="No expiration"
+			android:text="@string/no_expiration"
 			android:id="@+id/checkbox_no_expiration"
 		/>
 
@@ -79,7 +99,7 @@
 				<com.google.android.material.textfield.TextInputEditText
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:hint="Production date"
+					android:hint="@string/production_date"
 					android:inputType="none"
 					android:maxLines="1"
 					android:textIsSelectable="false"
@@ -91,10 +111,31 @@
 				/>
 			</com.google.android.material.textfield.TextInputLayout>
 
+			<com.google.android.material.textfield.TextInputLayout
+				style="?attr/textInputFilledStyle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:endIconMode="clear_text"
+				app:errorEnabled="true"
+				android:layout_weight="1"
+				android:visibility="gone"
+				android:id="@+id/text_input_layout_ordinal_production_date">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/ordinal_production_date"
+					android:inputType="number"
+					android:maxLines="1"
+					android:maxLength="5"
+					android:id="@+id/text_input_ordinal_production_date"
+				/>
+			</com.google.android.material.textfield.TextInputLayout>
+
 			<com.google.android.material.button.MaterialButton
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="STD"
+				android:text="@string/standard"
 				android:id="@+id/button_production_date_toggle"
 				android:layout_marginStart="4dp"
 				android:insetTop="0dp"
@@ -115,7 +156,7 @@
 			<com.google.android.material.textfield.TextInputEditText
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:hint="Production week"
+				android:hint="@string/production_week"
 				android:inputType="number"
 				android:maxLines="1"
 				android:maxLength="2"
@@ -135,7 +176,7 @@
 			<com.google.android.material.textfield.TextInputEditText
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:hint="License number"
+				android:hint="@string/license_number"
 				android:inputType="text"
 				android:maxLines="1"
 		/>
@@ -149,14 +190,14 @@
 			<com.google.android.material.button.MaterialButton
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="Save"
+				android:text="@string/save"
 				android:layout_weight="1"
 				android:layout_marginEnd="4dp"
 				android:id="@+id/button_save"/>
 			<com.google.android.material.button.MaterialButton
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="Cancel"
+				android:text="@string/cancel"
 				android:layout_weight="1"
 				android:layout_marginStart="4dp"
 				android:id="@+id/button_cancel"/>

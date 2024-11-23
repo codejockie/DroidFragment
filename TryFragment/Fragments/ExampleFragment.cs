@@ -1,5 +1,6 @@
 using Android.Text;
 using Android.Views;
+using Google.Android.Material.Button;
 using Google.Android.Material.DatePicker;
 using Google.Android.Material.TextField;
 using static TryFragment.ViewHelpers;
@@ -28,6 +29,8 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
         AddButtonClickHandler(view, Resource.Id.button_expiration_date_toggle, OnExpirationDateToggle);
         AddButtonClickHandler(view, Resource.Id.button_production_date_toggle, OnProductionDateToggle);
         AddTextChangedHandler(view, Resource.Id.text_input_production_date, OnProductionTextChanged);
+        AddTextChangedHandler(view, Resource.Id.text_input_ordinal_expiration_date, OnOrdinalExpirationDateChanged);
+        AddTextChangedHandler(view, Resource.Id.text_input_ordinal_production_date, OnOrdinalProductionDateChanged);
         SetTextInputLayoutError(view, Resource.Id.text_input_layout_license_number, "License number is required");
         SetTextInputClickHandler(view, Resource.Id.text_input_expiration_date, OnExpirationDateTextInputClick);
         AddCheckboxCheckHandler(view, Resource.Id.checkbox_no_expiration, OnCheckChanged);
@@ -96,8 +99,21 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
     {
         if (sender is Button button)
         {
-            button.Text = _isOrdinalExpirationDate ? "STD" : "ORD";
+            button.Text = _isOrdinalExpirationDate
+                ? Context?.GetString(Resource.String.standard)
+                : Context?.GetString(Resource.String.ordinal);
             _isOrdinalExpirationDate = !_isOrdinalExpirationDate;
+            ToggleViewVisibility(View, Resource.Id.text_input_layout_expiration_date);
+            ToggleViewVisibility(View, Resource.Id.text_input_layout_ordinal_expiration_date);
+        }
+    }
+
+    private void OnOrdinalExpirationDateChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (sender is TextInputEditText { Text.Length: 5 } input )
+        {
+            var text = input.Text;
+            // TODO: Convert text to date MM/dd/yy
         }
     }
 
@@ -106,8 +122,13 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
     {
         if (sender is Button button)
         {
-            button.Text = _isOrdinalProductionDate ? "STD" : "ORD";
+            button.Text = _isOrdinalProductionDate
+                ? Context?.GetString(Resource.String.standard)
+                : Context?.GetString(Resource.String.ordinal);
             _isOrdinalProductionDate = !_isOrdinalProductionDate;
+            ToggleViewVisibility(View, Resource.Id.text_input_layout_production_date);
+            ToggleViewVisibility(View, Resource.Id.text_input_layout_production_week);
+            ToggleViewVisibility(View, Resource.Id.text_input_layout_ordinal_production_date);
         }
     }
 
@@ -119,9 +140,19 @@ public class ExampleFragment() : Fragment(Resource.Layout.example_fragment)
         }
     }
 
+    private void OnOrdinalProductionDateChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (sender is TextInputEditText { Text.Length: 5 } input)
+        {
+            var text = input.Text;
+            // TODO: Convert text to date MM/dd/yy
+        }
+    }
+
     private void OnCheckChanged(object? sender, CompoundButton.CheckedChangeEventArgs e)
     {
-        ToggleTextInputLayoutState(View, Resource.Id.text_input_layout_expiration_date);
+        ToggleViewState(View, Resource.Id.text_input_layout_expiration_date);
+        ToggleViewState(View, Resource.Id.button_expiration_date_toggle);
     }
 }
 

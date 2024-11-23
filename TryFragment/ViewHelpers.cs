@@ -62,10 +62,16 @@ internal class ViewHelpers
         if (checkbox != null) checkbox.CheckedChange += handler;
     }
 
+    public static void ToggleViewState(View? view, int id)
+    {
+        var v = view?.FindViewById<View>(id);
+        if (v != null) v.Enabled = !v.Enabled;
+    }
+
     public static void ToggleViewVisibility(View? view, int id)
     {
         var v = view?.FindViewById<View>(id);
-        if (v != null) v.Visibility = ViewStates.Gone;
+        if (v != null) v.Visibility = v.Visibility == ViewStates.Visible ? ViewStates.Gone : ViewStates.Visible;
     }
 
     public static void SetTextInputFilters(View? view, int id, IInputFilter[] filters)

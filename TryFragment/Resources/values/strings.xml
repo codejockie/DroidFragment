@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">TryFragment</string>
     <string name="app_text">Hello, Android!</string>
+	<string name="expiration_date">Expiration date</string>
+	<string name="ordinal_expiration_date">Expiration date (YYDDD)</string>
+	<string name="production_date">Production date</string>
+	<string name="ordinal_production_date">Production date (YYDDD)</string>
+	<string name="production_week">Production week</string>
+	<string name="no_expiration">No expiration</string>
+	<string name="standard">STD</string>
+	<string name="ordinal">ORD</string>
+	<string name="license_number">License number</string>
+	<string name="save">Save</string>
+	<string name="cancel">Cancel</string>
 </resources>
