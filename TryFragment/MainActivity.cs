@@ -4,7 +4,7 @@ using TryFragment.Fragments;
 
 namespace TryFragment;
 
-[Activity(Label = "@string/app_name", MainLauncher = true)]
+[Activity(Label = "@string/app_name", MainLauncher = false)]
 public class MainActivity : AppCompatActivity
 {
     protected override void OnCreate(Bundle? savedInstanceState)
